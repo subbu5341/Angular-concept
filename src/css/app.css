@@ -1,0 +1,16 @@
+.container-mainPage{
+	background-color:#48D1CC;
+	height: 700px;
+}
+.container-thisDec{
+	background-color:#6495ED;
+	height: 700px;
+}
+.container-scopeDec{
+	background-color:#D3D3D3;
+	height: 700px;
+}
+.boldtitle {
+    font-weight: bold;
+    color: #8A2BE2;
+}

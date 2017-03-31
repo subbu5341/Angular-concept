@@ -1,0 +1,32 @@
+{
+  "name": "app",
+  "version": "1.0.1",
+  "description": "myapp with local",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-connect": "^0.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-livereload": "^0.1.2",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-copy": "^0.1.0",
+    "grunt-js2coffee": "^0.3.0",
+    "grunt-open": "^0.2.3",
+    "grunt-parallel": "^0.5.1",
+    "grunt-serve": "^0.1.6",
+    "live-server": "^1.2.0"
+  },
+  "dependencies": {
+    "grunt-express": "^1.4.1"
+  }
+}

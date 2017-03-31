@@ -1,0 +1,21 @@
+
+<!-- Normal controller  -->
+
+<div  ng-controller="ParentController" ng-cloak>
+	<div class="container-scopeDec">
+		<form>
+			<h1>Controller Type:{{Ctrl}}<h1>
+		    First Name: <input type="text" ng-model="firstName">
+		    <p> text: {{firstName}}</p>
+		    <h2>Movie Name : {{movie}}</h2>
+	        <h3>Rating : {{rating}}</h3>
+	        <movie-directive film="movie" rating="{{rating}}" display="display(movie)">
+	 		</movie-directive>
+		</form>
+		<div  ng-controller="childController">
+			<p>child text: {{lastName}}</p>
+			<p>Directive text: <b>{{$parent.firstName}}</b> in child controller</p>
+		</div>
+		<p><a href="#/">mainPage</a></p>
+	</div>
+</div> 

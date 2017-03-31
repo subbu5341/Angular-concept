@@ -1,0 +1,20 @@
+<!-- "Parent" template with "Controller As" -->	
+<div  ng-controller="ParentController as Parent" ng-cloak>
+	 <!-- ParentController doesn't exist, we get the `Parent` instance only 
+	 (look into Java instant creation of a class ) -->
+	<div ng-class="{'container-thisDec':Parent.Ctrl== 'thisCtrl' }">
+		<form>
+			<h1>Controller Type:{{Parent.Ctrl}}</h1>
+		    Parent Name: <input type="text" ng-model="Parent.firstName">
+		    <h2>Parent Name: {{Parent.firstName}}</h2>
+		    <h3>Movie Name : {{Parent.movie}}</h3>
+	        <h4>Rating : {{Parent.rating}}</h4>
+	        <div my-isolated-scope film="Parent.movie" rating="{{Parent.rating}}" display="Parent.display(movie)">
+	 		</div>
+		</form>
+		<div  ng-controller="ChildController as Child">
+			<h1>Child Name: {{Child.lastName}}</h1>
+		</div>
+	</div>
+			
+</div>

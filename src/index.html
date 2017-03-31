@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>John App('Scope')</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/app.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<body ng-app="myApp">
+<div class="container-mainPage">
+	<h1>This is main page</h1>
+	<ul>
+		<li>
+			<a href="#/scopeCtrl">scopeCtrl</a>
+		</li>
+		<li>
+			<a href="#/thisCtrl">thisCtrl</a>
+		</li>
+	</ul>
+	<div ng-view></div>
+</div>	
+<script src="../js/scopeCtrl.js"></script>
+<script src="../js/thisCtrl.js"></script>
+<script src="../js/directive.js"></script>
+<script src="../js/angular-route.js"></script>
+</body>
+</html>
