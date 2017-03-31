@@ -1,2 +1,2 @@
-# angular-concepts
-This Project will Describe the all angular concepts
+# Angular-concept
+It will describe the angular-concepts
