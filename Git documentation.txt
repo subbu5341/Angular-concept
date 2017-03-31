@@ -1,0 +1,29 @@
+**How to push our project to Git hub:
+
+1.cd my_project
+2.git init
+3.git add .
+4.git commit -m "write ur own statements"
+5.git remote add origin remote repository URL(Ex:https://github.com/subbu5341/Angular-concept.git)
+git push -u origin master
+
+**How to Resolve conflicts while pushing the code:
+
+See the below article: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
+Above steps will complete the pushing our project to git hub
+
+**How to clone the git repository:
+
+Check the below link:https://help.github.com/articles/cloning-a-repository/
+Or follow below steps for clone:
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY (Ex:https://github.com/subbu5341/Angular-concept.git)
+
+**How to delete a repository in Git hub:
+
+Settings -> Danger Zone -> delete repository
+
+**How to create branch in git:
+
+git checkout -b branch-name (Ex:angular)
+it will move to angular branch.
+for coming out from current branch use: git checkout branch-name(Ex:angular) 
