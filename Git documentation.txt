@@ -36,3 +36,7 @@ for coming out from current branch use: git checkout branch-name(Ex:angular)
 
 ** how to remove untracked files or directories:
 git clean -f or git clean -fd
+
+**How to rename a git branch:
+git branch -m new-name 
+Or check thius link:https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/
