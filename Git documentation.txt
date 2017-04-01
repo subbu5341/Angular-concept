@@ -3,9 +3,11 @@
 1.cd my_project
 2.git init
 3.git add .
-4.git commit -m "write ur own statements"
+4.git commit -m "write ur own statements" (commit: adding changes to the local repository)
 5.git remote add origin remote repository URL(Ex:https://github.com/subbu5341/Angular-concept.git)
-git push -u origin master
+6.git push -u origin master 
+(push: to transfer the last commit(s) to a remote server,
+ origin: is the default alias to the URL of your remote repository.)
 
 **How to Resolve conflicts while pushing the code:
 
@@ -16,6 +18,9 @@ Above steps will complete the pushing our project to git hub
 
 Check the below link:https://help.github.com/articles/cloning-a-repository/
 Or follow below steps for clone:
+
+**What is the difference between git fetch and git pull?
+check the link:https://www.git-tower.com/learn/git/faq/difference-between-git-fetch-git-pull
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY (Ex:https://github.com/subbu5341/Angular-concept.git)
 
 **How to delete a repository in Git hub:
