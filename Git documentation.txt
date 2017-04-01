@@ -20,6 +20,7 @@ Check the below link:https://help.github.com/articles/cloning-a-repository/
 Or follow below steps for clone:
 
 **What is the difference between git fetch and git pull?
+
 check the link:https://www.git-tower.com/learn/git/faq/difference-between-git-fetch-git-pull
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY (Ex:https://github.com/subbu5341/Angular-concept.git)
 
@@ -32,3 +33,6 @@ Settings -> Danger Zone -> delete repository
 git checkout -b branch-name (Ex:angular)
 it will move to angular branch.
 for coming out from current branch use: git checkout branch-name(Ex:angular) 
+
+** how to remove untracked files or directories:
+git clean -f or git clean -fd
