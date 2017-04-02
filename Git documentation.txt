@@ -39,4 +39,7 @@ git clean -f or git clean -fd
 
 **How to rename a git branch:
 git branch -m new-name 
-Or check thius link:https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/
+Or check this link:https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/
+**How to delete a branch in git:
+git branch -d branch name
+Or check this link:https://www.git-tower.com/learn/git/faq/delete-remote-branch
