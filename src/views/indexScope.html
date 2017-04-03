@@ -4,11 +4,19 @@
 <div  ng-controller="ParentController" ng-cloak>
 	<div class="container-scopeDec">
 		<form>
-			<h1>Controller Type:{{Ctrl}}<h1>
+			<p>Controller Type:{{Ctrl}}<p>
 		    First Name: <input type="text" ng-model="firstName">
 		    <p> text: {{firstName}}</p>
-		    <h2>Movie Name : {{movie}}</h2>
-	        <h3>Rating : {{rating}}</h3>
+		    <p>Movie Name : {{movie}}</p>
+	        <p>Rating : {{rating}}</p>
+	        <h1> View Students </h1>
+		<p>Search:</p>
+		<br/>
+			<input type="text" ng-model="name" />
+		<br/>
+		<ul>
+			<li ng-repeat="student in students | filter:name">{{student.name}} , {{student.city}}</li>
+		</ul>
 	        <movie-directive film="movie" rating="{{rating}}" display="display(movie)">
 	 		</movie-directive>
 		</form>

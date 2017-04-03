@@ -31,6 +31,7 @@
 		/**
         * @desc:Dynamic Css variable
         */
+        /* jshint validthis: true */
 		var vm = this;
 		vm.Ctrl = "thisCtrl";
 		vm.firstName = "Hii john papa ";

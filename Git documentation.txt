@@ -43,3 +43,9 @@ Or check this link:https://multiplestates.wordpress.com/2015/02/05/rename-a-loca
 **How to delete a branch in git:
 git branch -d branch name
 Or check this link:https://www.git-tower.com/learn/git/faq/delete-remote-branch
+
+**Some documentation regarding Git:
+check this link: https://www.atlassian.com/git/tutorials/syncing
+
+**How to know the Git origin URL:
+git config --get remote.origin.url

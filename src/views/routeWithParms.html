@@ -1,0 +1,64 @@
+<!-- Route With params -->
+<div  ng-controller="ParentController" ng-cloak>
+	<div class="container-scopeDec">
+		<div class="row" ng-hide="orderActive">
+			<div class="col-md-9">
+				<table class="table table-striped">
+					<thead>
+					 	<tr><b>{{companyName}}</b></tr>
+					  <tr>
+						<th>#</th><th>Order No.</th><th>Details</th><th></th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td>1</td><td>1234</td><td>15" Samsung Laptop</td>
+						<td><a href="#showOrder/1234">show details</a></td>
+					  </tr>
+					  <tr>
+						<td>2</td><td>5412</td><td>2TB Seagate Hard drive</td>
+						<td><a href="#showOrder/5412">show details</a></td>
+					  </tr>
+					</tbody>
+				  </table>
+				</div>
+			</div>
+			<div class="row" ng-switch="orderID">
+				<div class="col-md-9" ng-switch-when="1234">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th>#</th><th>Model No.</th><th>No.Of Pieces</th><th></th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>1</td><td>I5 processor</td><td>6</td>
+						  </tr>
+						  <tr>
+							<td>2</td><td>I7 processor</td><td>3</td>
+						  </tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-9" ng-switch-when="5412">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th>#</th><th>Memory Size</th><th>No.Of Pieces</th><th></th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>1</td><td>2GB</td><td>4</td>
+						  </tr>
+						  <tr>
+							<td>1</td><td>10Gb</td><td>2</td>
+						  </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		<p><a href="#/">mainPage</a></p>
+	</div>
+</div> 
