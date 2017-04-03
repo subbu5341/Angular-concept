@@ -104,8 +104,8 @@ module.exports = function(grunt) {
 		    },
 		    // Example: this target compiles a single file from JavaScript to CofeeScript
 		    single: {
-		      src: 'src/js/mainApp.js',
-		      dest: 'tmp/single/mainApp.coffee'
+		      src: 'src/js/scopeCtrl.js',
+		      dest: 'tmp/single/scopeCtrl.coffee'
 		    },
 		    // Example: this target compiles a directory of JavaScript files to
 		    // individual CofeeScript files, retaining the same directory structure

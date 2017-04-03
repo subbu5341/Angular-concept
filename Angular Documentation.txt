@@ -1,0 +1,2 @@
+CDN:Connect Delivery Network
+Most of the times we will use google CDN
