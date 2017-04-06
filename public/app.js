@@ -13,9 +13,10 @@
 			controller: 'ParentController',
 			controllerAs: 'Parent'
 		  })*/
-		  .when('/johnHtml', {
-		    templateUrl: 'templates/john_app.html',
-		   	controller: 'ParentController'
+		  .when('/directtemplate', {
+		    templateUrl: 'ngTemplate.html',
+		   	controller: 'ParentController',
+		   	ngtemplate:'Hii I am ngTemplate'
 		  })
 		  .when('/routeWithParms', {
 		    templateUrl: '../views/routeWithParms.html',
@@ -51,24 +52,27 @@
    	 */	
 		return {
 	        restrict: "E",
-	  		scope: {
+	  		/*scope: {
 	            movie: '=film',
 	            rating: '@',
 	            display: '&'
-	        },
+	        },*/
+			transclude: true,// for Showing both templates(Html+Directive templates)
 	        
 			//templateUrl: '../views/my-isolated-scope.html',
-			template: "<div>Movie title : {{movie}}</div>"+
+			template: "<div ng-transclude>Movie title : {{movie}}</div>"+
 	        "Type a new movie title : <input type='text' ng-model='movie' />"+
 	        "<div>Movie rating : {{rating}}</div>"+
 	        "Rate the movie : <input type='text' ng-model='rating' />"+
-	        "<div><button ng-click='display({movieName:movie})'>View Movie</button></div>",
-			/*link: function(scope, element, attrs) {
+	        /*"<div><button ng-click='display({movieName:movie})'>View Movie</button></div>"*/
+			"<div><button ng-click='display(movie)'>View Movie</button></div>",
+			link: function(scope, element, attrs) {
 	            scope.movie = "Panda"; 
 				scope.display = function(movieName) {
 		            alert("Movie : " + movieName);
 		        };
-				element.bind('click', function () {
+
+				/*element.bind('click', function () {
                 	element.html('You clicked me!');
             	});
 	            element.bind('mouseenter', function () {
@@ -76,14 +80,18 @@
 	            });
 	            element.bind('mouseleave', function () {
 	                element.css('background-color', 'white');
-	            }); 
-		    }*/
+	            }); */
+		    }
 		};
 	};(function() {
     'use strict';
     
     /* to a set module */
-	angular.module('myApp',["ngRoute"]);
+	angular
+		.module('myApp',[
+			'ngRoute',
+			'ngMessages'
+		]);
 	
 	/* to a get module */
 	
@@ -100,7 +108,7 @@
 		.module('myApp')
 	    .controller('ParentController', ParentController);
 
-	function ParentController($scope,$routeParams,$route) { 
+	function ParentController($scope,$routeParams,$route,$rootScope) { 
 		var scopeCtrl;
     
     /**
@@ -117,7 +125,18 @@
 	    $scope.orderID = $routeParams.orderId;
 	    $scope.orderActive = $routeParams.orderId ? true: false;
 	    //This is useful when we are using same Ctrl for different Htmls in routing
-	    $scope.companyName = $route.current.laptopCompany
+	    $scope.companyName = $route.current.laptopCompany;
+	    $scope.ngTemplate = $route.current.ngtemplate;
+
+	    $scope.data ="I am parent"
+		 $scope.broadcastEvent= function (){
+		    $rootScope.$broadcast('greeting', $scope.data);
+		 }
+		//$scope.$on not works 
+		$rootScope.$on('emitEventListener', listenEmitEvent)
+		function listenEmitEvent($event, message){
+	    	alert("Hi" + message);
+		};
 
 	    $scope.students = [
 			{name: 'Mark Waugh', city:'New York'},
@@ -125,12 +144,13 @@
 			{name: 'John Marcus', city:'Paris'}
 		];
 	    
-	    $scope.display = function(movieName) {
+	    /*$scope.display = function(movieName) {
 	        alert("Movie : " + movieName);
-	    };
+	    };*/
 	    
 	    $scope.$watch('movie', function (newVal, oldVal) {
-	    	alert("value changed:"+ newVal);
+	    	//alert("value changed:"+ newVal);
+	    	console.log(newVal);
 	    }); 
 	}
 	
@@ -138,11 +158,23 @@
 		.module('myApp')
 	    .controller('childController', childController);
 	
-	function childController($scope) { 
+	function childController($scope,$rootScope) { 
 		$scope.lastName = "Hii john papa child";
-	}
-
-	
+		
+		/*$scope.$on('someEvent', function(event, mass) {
+		 	$scope.broadcast= mass;
+		});*/
+        $scope.emitData ="I am Child"
+		$scope.$on('greeting', listenGreeting)
+		$scope.$on('greeting', listenGreeting)
+		function listenGreeting($event, message){
+	    	alert("Hi" + message);
+		};
+		
+		$scope.emitEvent= function (){
+		    $rootScope.$emit('emitEventListener', $scope.emitData);
+		 }
+	}	
 })();;(function() {
     'use strict';
     
