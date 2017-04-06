@@ -20,19 +20,22 @@
 	            rating: '@',
 	            display: '&'
 	        },
+			transclude: true,// for Showing both templates(Html+Directive templates)
 	        
 			//templateUrl: '../views/my-isolated-scope.html',
-			template: "<div>Movie title : {{movie}}</div>"+
+			template: "<div ng-transclude>Movie title : {{movie}}</div>"+
 	        "Type a new movie title : <input type='text' ng-model='movie' />"+
 	        "<div>Movie rating : {{rating}}</div>"+
 	        "Rate the movie : <input type='text' ng-model='rating' />"+
-	        "<div><button ng-click='display({movieName:movie})'>View Movie</button></div>",
-			/*link: function(scope, element, attrs) {
+	        /*"<div><button ng-click='display({movieName:movie})'>View Movie</button></div>"*/
+			"<div><button ng-click='display(movie)'>View Movie</button></div>",
+			link: function(scope, element, attrs) {
 	            scope.movie = "Panda"; 
 				scope.display = function(movieName) {
 		            alert("Movie : " + movieName);
 		        };
-				element.bind('click', function () {
+
+				/*element.bind('click', function () {
                 	element.html('You clicked me!');
             	});
 	            element.bind('mouseenter', function () {
@@ -40,7 +43,7 @@
 	            });
 	            element.bind('mouseleave', function () {
 	                element.css('background-color', 'white');
-	            }); 
-		    }*/
+	            }); */
+		    }
 		};
 	}

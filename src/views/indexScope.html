@@ -3,26 +3,57 @@
 
 <div  ng-controller="ParentController" ng-cloak>
 	<div class="container-scopeDec">
-		<form>
+		<form name="userForm" novalidate>
+        
+	        <p><b>Hii i am ng-message here.. </b></p>
+	        
+	            <label>Name:
+	            <input type="text" name="name" 
+	                ng-model="parentName"
+	                ng-minlength="5"
+	                ng-maxlength="20"
+	                required>
+	            </label>    
+	            <!-- ngMessages goes here -->
+	            <div ng-messages="userForm.name.$error" ng-if="userForm.name.$touched" style="color:red">
+				    <label>
+					    <p ng-message="minlength">Your name is too short.</p>
+					    <p ng-message="maxlength">Your name is too long.</p>
+					    <p ng-message="required">Your name is required.</p>
+					</label>
+				</div>
 			<p>Controller Type:{{Ctrl}}<p>
-		    First Name: <input type="text" ng-model="firstName">
-		    <p> text: {{firstName}}</p>
+		   	<p>parent text: {{parentName}}</p>
 		    <p>Movie Name : {{movie}}</p>
 	        <p>Rating : {{rating}}</p>
-	        <h1> View Students </h1>
-		<p>Search:</p>
-		<br/>
-			<input type="text" ng-model="name" />
-		<br/>
-		<ul>
-			<li ng-repeat="student in students | filter:name">{{student.name}} , {{student.city}}</li>
-		</ul>
-	        <movie-directive film="movie" rating="{{rating}}" display="display(movie)">
-	 		</movie-directive>
+	        
+	        
+	        <p><b>Hii i am Broadcast here.. </b></p>
+	        <button ng-click="broadcastEvent()">BroadCastEvent</button>
+	    
+			<p><b>Hii i am ng-repeat and search filter here.. </b></p>   
+			<p>Search:</p>
+			<br/>
+				<input type="text" ng-model="name" />
+			<br/>
+			<ul>
+				<li ng-repeat="student in students | filter:name">{{student.name}} , {{student.city}}</li>
+			</ul>
+			
+			<p><b>Hii i am movie-directive here.. </b></p>  
+		       <movie-directive film="movie" rating="{{rating}}" display="display(movie)">
+		         <p>Hii transclude</p>
+		 	   </movie-directive>
 		</form>
+		
+		<p><b>Hii i am child controller here.. </b></p> 
 		<div  ng-controller="childController">
-			<p>child text: {{lastName}}</p>
-			<p>Directive text: <b>{{$parent.firstName}}</b> in child controller</p>
+			<p>child text: {{childName}}</p>
+			<p>parent text: <b>{{$parent.parentName}}</b> in child controller</p>
+			<p>BroadCast Event Listening :{{broadcast}}</p>
+
+			<p><b>Hii i am emit here.. </b></p>
+			<button ng-click="emitEvent()">EmitEvent</button>
 		</div>
 		<p><a href="#/">mainPage</a></p>
 	</div>

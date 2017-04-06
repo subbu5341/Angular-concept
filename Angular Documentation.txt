@@ -1,2 +1,6 @@
 CDN:Connect Delivery Network
 Most of the times we will use google CDN
+
+Best authors For angualrJs:
+
+1.viralpatel
