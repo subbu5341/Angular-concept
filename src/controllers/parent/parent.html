@@ -1,0 +1,118 @@
+
+<!-- Normal controller  -->
+
+<div  ng-controller="ParentController" ng-cloak>
+	<div class="container-scopeDec">
+		<form name="userForm" novalidate>
+	        <ul>
+	        	<li>
+				    <div> 
+				       	<p><b>Hii i am ng-message here.. </b></p>
+				        
+			            <p>Name:
+				            <input type="text" name="name" 
+				                ng-model="parentName"
+				                ng-minlength="5"
+				                ng-maxlength="20"
+				                required>
+			            </p>
+			                
+			            <!-- ngMessages goes here -->
+			            <div ng-messages="userForm.name.$error" ng-if="userForm.name.$touched" style="color:red">
+						    <label>
+						    	 <div ng-messages-include="../views/messages.html"></div>
+							    <!-- <p ng-message="minlength">Your name is too short.</p>
+							    <p ng-message="maxlength">Your name is too long.</p>
+							    <p ng-message="required">Your name is required.</p> -->
+							</label>
+						</div>
+					</div>	
+                </li><br>
+                <li>
+					<div>
+					    <p><b>Hii i am ng-required condition check here.. </b></p>	
+					      <p ng-show='userForm.$error.required'>
+					        Email OR Phone Required
+					      </p>
+					      
+					      <input type='email'
+					             name='email'
+					             ng-model='contact.email' 
+					             placeholder='your@email.com'
+					             ng-required='!contact.phone' ng-hide='contact.phone'/>
+					        
+					      <span ng-show='userForm.email.$error.email'>
+					        Email must be valid.
+					      </span>
+					      
+					      <br/> 
+					        
+					      -- OR --
+					      <br/>        
+					        
+					      <input type='text'
+					             ng-model='contact.phone'             
+					             placeholder='(xxx) xxx-xxxx'
+					             ng-required='!contact.email'  ng-hide='contact.email' ng-model-options="{updateOn: 'blur'}"/> 
+					       <p><b>ngModalOptions Attribute:{{contact.phone}}{{contact.email}} </b></p>     
+				    </div> 
+			    </li><br> 
+			     <li>    	
+					<div>		
+						<p>Controller Type:{{Ctrl}}<p>
+					   	<p>parent text: {{parentName}}</p>
+					    <p>Movie Name : {{movie}}</p>
+				        <p>Rating : {{rating}}</p>
+				        <!-- <button type="button" ng-click="checkEvent($event)">checkEvent</button> -->
+					</div>        
+		         </li>
+		         <li>
+			        <div>
+				        <p><b>Hii i am Broadcast here.. </b></p>
+				        <button ng-click="broadcastEvent()">BroadCastEvent</button>
+			    	</div>
+			     </li><br>
+			     <li> 
+			    	<div>
+				        <p><b>Hii i am for checking different type of functions here.. </b></p>
+				        <button ng-click="functionTypes()">functionTypes</button>
+				        <p>{{type1}}</p>
+				        <p>{{type2}}</p>
+			    	</div>
+			    </li><br>
+			    <li>	
+			    	<div>
+				        <p><b>Hii i am timeout here.. </b></p>
+				        <span>Time (in ms--timeout): <b>{{timeInMs}}</b></span>
+		    			<br>
+		     			<span>Time (in ms--settimeout): <b>{{timeInMs_old}}</b></span>
+			    	</div>
+		        </li><br>
+		         <li>
+					<div>
+						<p><b>Hii i am ng-repeat and search filter here.. </b></p>   
+						<p>Search:
+							<input type="text" ng-model="name" ng-model-options="{ debounce: 1000 }"/></p>
+						<ul>
+							<li ng-repeat="student in students | filter:name">{{student.name}} , {{student.city}}</li>
+						</ul>
+					</div>
+				</li><br>
+				<li>	
+					<div>
+						<p><b>Hii i am movie-directive here.. </b></p>  
+				        <movie-directive film="movie" rate="{{rating}}"  ctrl="directcall" callback="ctrlfunction(names)">
+				         <p>Hii transclude</p>
+				        </movie-directive>
+				 	</div>
+				</li><br>
+				<li>	
+					<div>
+						<p><b>Hii i am popup here.. </b></p>  
+				        <button ng-click="show()">Login Page</button>
+				 	</div>
+				</li><br> 	 	
+			</ul>
+		</form>
+	</div>
+</div> 

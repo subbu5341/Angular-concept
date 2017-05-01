@@ -1,6 +1,58 @@
 CDN:Connect Delivery Network
 Most of the times we will use google CDN
 
+AngualrJs rendering steps:
+
+When Angular starts your application, it parses and processes this new markup from the template using the compiler. The loaded, transformed and rendered DOM is basically the view
+1.HTML is parsed into DOM tree
+2.DOM tree is converted to a render tree
+3.Layout
+4.Paint
+
+
+*Directive : https://www.3pillarglobal.com/insights/angularjs-understanding-directive-scope
+	     https://www.3pillarglobal.com/insights/angularjs-understanding-custom-directive#comment-123026
+	     https://dzone.com/articles/angularjs-10-best-practices		
+
+*eventlisteners :http://codepen.io/gpincheiraa/pen/xOZwqa &&
+		 http://stackoverflow.com/questions/14502006/working-with-scope-emit-and-on
+
+*Ng-messages:https://scotch.io/tutorials/angularjs-form-validation-with-ngmessages &&
+	    https://scotch.io/tutorials/angularjs-form-validation
+            https://docs.angularjs.org/api/ngMessages
+
+*RouteParams:http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
+	     https://www.bennadel.com/blog/2420-mapping-angularjs-routes-onto-url-parameters-and-client-side-events.htm	
+
+*ng-transclude:http://stackoverflow.com/questions/15296284/understanding-the-transclude-option-of-directive-definition
+
+*$eval:http://www.guru99.com/angularjs-expressions.html
+	http://webiks.com/the-war-of-good-vs-eval-or-eval-vs-eval/
+	https://docs.angularjs.org/guide/expression		
+
+Differences b/w:
+
+1.$observer Vs $watch:http ://stackoverflow.com/questions/14876112/angularjs-difference-between-the-observe-and-watch-methods
+
+2.$watch Vs $on :http://stackoverflow.com/questions/23561302/angular-js-watch-vs-on
+
+3.scope Vs $scope:https://thinkster.io/a-better-way-to-learn-angularjs/scope-vs-scope
+
+4.$evalAsync Vs $timeout:http://stackoverflow.com/questions/17301572/angularjs-evalasync-vs-timeout
+
 Best authors For angualrJs:
 
 1.viralpatel
+2.http://www.techstrikers.com
+3.https://www.w3schools.com
+4.https://www.tutorialspoint.com
+
+Diagram representation of MVC:
+https://docs.angularjs.org/guide/concepts#directive
+
+Function declaration types:
+ someFn();
+ var someFn = function(...) {...} // is called function expression
+ 
+ someFn();
+ function someFn(...) {...} // is called function statement

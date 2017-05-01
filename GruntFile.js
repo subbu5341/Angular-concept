@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		connect: {
 			example: {
-				port: 9000,
+				port: 8000,
 				base: 'src',
 				livereload:true	
 			}
@@ -153,7 +153,7 @@ module.exports = function(grunt) {
 	//grunt.loadNpmTasks('grunt-reload');
 	//grunt.loadNpmTasks('grunt-serve');
 	grunt.registerTask('test', ['jshint','qunit']);
-	grunt.registerTask('default', ['concat','uglify','connect','watch']);
-	grunt.registerTask('server',[ 'express','copy','open','js2coffee','coffee','watch','clean','connect']);
+	grunt.registerTask('default', ['concat','copy','connect','watch']);
+	grunt.registerTask('server',[ 'express','copy','uglify','open','js2coffee','coffee','watch','clean','connect']);
 
 };

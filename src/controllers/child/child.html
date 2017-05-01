@@ -1,0 +1,28 @@
+<div  ng-controller="childController">
+	<div class="container-scopeDec">	
+		<ul>
+			<li>
+				<p><b>Hii i am ChildCtrl here.. </b></p>
+				<p class="afteruse">child text: {{childName}}</p>
+				<p class="beforeuse">parent text: <b>{{$parent.parentName}}</b> in child controller</p>
+				<p>BroadCast Event Listening :{{broadcast}}</p>
+            </li><br>
+            <li>
+				<p><b>Hii i am emit here.. </b></p>
+				<button ng-click="emitEvent()">EmitEvent</button>
+			</li><br>
+			<li>
+				<p><b>Hii i am location service here.. </b></p>
+				<span>{{myUrl}}</span><br>
+				Git Repo(New Website or URL) :<button ng-click="gitRepoLink()">windowLocation</button><br>
+				Home route(New route or Update URL) :<button ng-click="homeRoute()">locationRoute</button>		
+			</li><br>
+			<li>
+				<p><b>Hii i am rnStepper directive here.. </b></p>
+				<stepper-directive>
+					<button class="rnStepperBox">{{count}}</button>
+				</stepper-directive>	
+			</li><br>	
+		</ul>
+	</div>
+</div>
