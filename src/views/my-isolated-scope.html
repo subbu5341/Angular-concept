@@ -1,10 +1,8 @@
-Name: {{name}}, 
-Address: {{customer.address}}
-
-<div>Movie title : {{movie}}</div>
+<span ng-transclude></span><div>Movie title : {{movie}}</div>
 Type a new movie title : <input type='text' ng-model='movie' />
 <div>Movie rating : {{rating}}</div>
 Rate the movie : <input type='text' ng-model='rating' />
-<div>
-	<button ng-click='display({movieName:movie})'>View Movie</button>
-</div>
+<br><br>
+<div><button ng-click='ctrlfunction({eventName:names})'>View eventCtrl</button></div>
+<br>
+<div><button ng-click='display(movie)'>View MovieDire</button></div>,

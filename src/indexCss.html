@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul{padding:0px;margin:0px;}
+li{list-style:none;padding:0px;margin:0px;background:gray;display:inline-block; vertical-align:top; width:200px;text-align:center;color:white}
+ul li ul{display:none;}
+
+ul li:hover{background-color:blue;color:yellow}
+ul li:hover > ul{display:inline-block;}
+ul li:hover > ul li:hover {background:yellow;color:blue;height:20px;}
+
+ul li ul li ul {margin-left:200px;margin-top:-20px}
+ul li ul li ul li{background:red; color:black;}
+ul li:hover > ul li:hover > ul li:hover{background:black; color:yellow;}
+</style>
+</head>
+<body>
+<ul>
+	<li>Home
+    	<ul>
+        	<li>One
+              <ul>
+                  <li>Two1</li>
+                  <li>Two2</li>
+                  <li>Two3</li>
+               </ul>
+            </li>  
+            <li>Two</li>
+            <li>Three</li>
+        </ul>
+    </li>
+    <li>About
+    	<ul>
+        	<li>Four</li>
+            <li>Five</li>
+            <li>Six</li>
+        </ul>
+    </li>
+    <li>Services
+    	<ul>
+        	<li>Seven</li>
+            <li>Eight</li>
+            <li>Nine</li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+</html>

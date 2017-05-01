@@ -29,7 +29,8 @@
     "live-server": "^1.2.0"
   },
   "dependencies": {
-    "angular-messages": "^1.6.4",
-    "grunt-express": "^1.4.1"
+    "angular-messages": "1.5.5",
+    "grunt-express": "^1.4.1",
+    "angular-ui-bootstrap":"^2.5.0"
   }
 }
