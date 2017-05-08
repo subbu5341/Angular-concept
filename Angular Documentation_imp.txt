@@ -66,7 +66,8 @@ DIFFERENCES B/W:
 		      http://viralpatel.net/blogs/angularjs-service-factory-tutorial/
 	              http://www.dotnettricks.com/learn/angularjs/understanding-angularjs-factory-service-and-provider
 6.Bootstrap Vs angular-ui-bootstrap:http://stackoverflow.com/questions/35063868/what-is-the-core-difference-between-bootstrap-css-and-angularjs-ui-bootstrap	
-
+7.call Vs apply:https://hangar.runway7.net/javascript/difference-call-apply
+		https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
 BEST AUTHORS FOR ANGUALRJS:
 
 1.viralpatel
@@ -97,3 +98,6 @@ Youtube Videos socilaNetworkLogin:https://www.youtube.com/watch?v=M1CXN2DVxqY&fe
 
 Bower install:
 https://bower.io/docs/creating-packages/
+
+karma setUp:
+http://www.wilandrade.com/how-to-setup-karma-with-mocha-and-chai/

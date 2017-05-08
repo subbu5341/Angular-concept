@@ -23,14 +23,14 @@
 	        restrict: 'EA',
 	        templateUrl: '../views/my-isolated-scope.html',
 	        scope: {
-	            movie: '=film',
+	            movieName: '=film',
+				role: '=',
 	            rating: '@rate',
-	            students:'@',
+	            //students:'@',
 	            display: '&',
-				ctrlfunction: '&callback',
-				ctrl: '='
-	        },
-			transclude: true, // for Showing both templates(Html+Directive templates)
+				ctrlfunction: '&callback'
+			},
+			transclude: true, // for Showing both templates(Html + Directive templates)
 	        //controller: ExampleController,
 	        //controllerAs: 'vm',
 	        link: linkFunc
@@ -41,9 +41,8 @@
     }
     
     function linkFunc (scope, element, attrs, ctrl) {
-		console.log(ctrl);
-            scope.movie = "Panda"; 
-		scope.directiveElm ="i am from directiveElm"
+		//scope.role = "Panda"; 
+		scope.directiveElm ="i am from directiveElm";
 		scope.display = function(movieName) {
             alert("Movie : " + movieName);
         };
@@ -51,10 +50,11 @@
         	element.find('p').text(value)
         })
  		element.append("<strong>"+attrs.film+"</strong>");
-
-		angular.element('p').eq(12).bind('click', function () {
+        //click on Hii i am ng-message here.
+		angular.element('p').eq(0).bind('click', function () {
         	alert('You clicked me!');
     	});
+        
         sayHello();
         function sayHello(){
           return 'Hi'
@@ -70,4 +70,35 @@
             element.css('background-color', 'white');
         }); */
     }
+	
+	angular
+		.module('myApp')
+		.directive('elementDirective', elementDirective);
+	function elementDirective() {	
+		return {
+	      restrict: "A",
+	      scope: {
+	        elementDir: '='
+	      },
+	      template:'<span>{{elementDir}}</span>',
+		  link: function(scope, element){
+	        }
+    	}
+    }	
+	
+	/*function elementDirective() {
+		var directive = {
+		        restrict: 'A',
+		        template:'<span>{{elementDir}}</span>',
+		        scope: {
+		            elementDir: '='
+		        },
+				 link: linkFunc
+		    };
+		return directive;
+	    }
+    
+    function linkFunc (scope, element, attrs, ctrl) {
+		//scope.elementDir = "Panda"; 
+    }*/
 })();	

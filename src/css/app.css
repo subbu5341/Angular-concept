@@ -19,14 +19,12 @@ button{
 }
 table, tr, td, th {
 	border: 2px solid black;
-	/*border-collapse: collapse;*/
 }
 tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-/*login page*/
-
+/*social login page*/
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
@@ -66,6 +64,7 @@ img {
   width:100px;
   height:100px;
 }
+
 /*after before css example*/
 .container-scopeDec ul li .afteruse::after { 
     content: " - Remember this after css";
@@ -79,7 +78,8 @@ img {
     color: red;
     font-weight: bold;
 }
-/*---rnStepper-----*/
+
+/*---rnStepper css -----*/
 button.rnStepper {
     margin-left: -6px;
     margin-right: -6px;
@@ -93,4 +93,10 @@ button.rnStepperBox {
 
 button.rnStepper:disabled {
     background-color: #DCDCDC;
+}
+
+/*---ng-class css -----*/
+.red{
+  font-size: 20px;
+  color: red; 
 }

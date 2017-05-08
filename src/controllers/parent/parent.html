@@ -59,13 +59,15 @@
 			    </li><br> 
 			     <li>    	
 					<div>		
-						<p>Controller Type:{{Ctrl}}<p>
+						<p>Controller Type:{{ctrl}}<p>
 					   	<p>parent text: {{parentName}}</p>
 					    <p>Movie Name : {{movie}}</p>
 				        <p>Rating : {{rating}}</p>
+				        <p>ctrlRole : {{ctrlRole}}</p>
 				        <!-- <button type="button" ng-click="checkEvent($event)">checkEvent</button> -->
 					</div>        
 		         </li>
+
 		         <li>
 			        <div>
 				        <p><b>Hii i am Broadcast here.. </b></p>
@@ -101,15 +103,29 @@
 				<li>	
 					<div>
 						<p><b>Hii i am movie-directive here.. </b></p>  
-				        <movie-directive film="movie" rate="{{rating}}"  ctrl="directcall" callback="ctrlfunction(names)">
+				        <movie-directive film="movie" rate="{{rating}}"  ctrl="directcall" callback="ctrlfunction(names)" role="ctrlRole">
 				         <p>Hii transclude</p>
 				        </movie-directive>
 				 	</div>
 				</li><br>
 				<li>	
 					<div>
+						<p><b>Hii i am rnstepper-directive here.. </b></p>  
+				        <stepper-directive>
+							<button class="rnStepperBox">{{count}}</button>
+						</stepper-directive>
+				 	</div>
+				</li><br>
+				<li>    	
+					<div>
+						<p><b>Hii i am elementDirective here.. </b></p>
+						<div element-directive elementDir="elementDir">elementDir: {{elementDir}}</div>		
+					</div>        
+		        </li><br>
+				<li>	
+					<div>
 						<p><b>Hii i am popup here.. </b></p>  
-				        <button ng-click="show()">Login Page</button>
+				        <button ng-click="loginPage()">Login Page</button>
 				 	</div>
 				</li><br> 	 	
 			</ul>

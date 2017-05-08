@@ -9,17 +9,15 @@
 			'angularModalService'
 		]);
 	
-	/* to a get module */
-	
 	/**
-	* @Controller: ParentController && childController
+	* @Controller: ParentController
 	* @desc: Controller Declaration with "$scope"
 	* @Example:Accessing 'Ctrl' variable
 	* $rootscope
 	* |_$scope
 	*   |_Ctrl ------()
 	*/
-	
+	/* to a get module */
 	angular
 		.module('myApp')
 	    .controller('ParentController', ParentController);
@@ -36,6 +34,8 @@
 		$scope.controlElement = "Hiii directive";
 		$scope.movie = "Ice Age";
 	    $scope.rating = 5;
+	    $scope.elementDir ="Hii Ctrl";
+	    $scope.ctrlRole ="Hii Ctrl";
 	/**
     * @desc:$routeParams 
     */
@@ -44,9 +44,12 @@
 	    //This is useful when we are using same Ctrl for different Htmls in routing
 	    $scope.companyName = $route.current.laptopCompany;
 	    $scope.ngTemplate = $route.current.ngtemplate;
-	    $scope.show = function() {
+	/**
+    * @desc:modal popup open function 
+    */    
+	    $scope.loginPage = function() {
 	        ModalService.showModal({
-	            templateUrl: 'login.html',
+	            templateUrl: '../views/login.html',
 	            controller: "ModalController"
 	        }).then(function(modal) {
 	            modal.element.modal();
@@ -60,9 +63,9 @@
     * @desc:EventListners
     */   
 	    $scope.data ="I am BroadcastEvent"
-		 $scope.broadcastEvent= function (){
-		    $rootScope.$broadcast('greeting', $scope.data);
-		 }
+		$scope.broadcastEvent= function (){
+		   $rootScope.$broadcast('greeting', $scope.data);
+		};
 		//$scope.$on not works incase of $emit
 		$rootScope.$on('emitEventListener', listenEmitEvent)
 		function listenEmitEvent($event, message){
