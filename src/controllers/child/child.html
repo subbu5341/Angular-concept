@@ -2,23 +2,23 @@
 	<div class="container-scopeDec">	
 		<ul>
 			<li>
-				<p><b>Hii i am ChildCtrl here.. </b></p>
+				<p><b>Hii i am ChildCtrl here...... </b></p>
 				<p class="afteruse">child text: {{childName}}</p>
 				<p class="beforeuse">parent text: <b>{{$parent.parentName}}</b> in child controller</p>
 				<p>BroadCast Event Listening :{{broadcast}}</p>
             </li><br>
             <li>
-				<p><b>Hii i am emit here.. </b></p>
+				<p><b>Hii i am emit here...... </b></p>
 				<button ng-click="emitEvent()">EmitEvent</button>
 			</li><br>
 			<li>
-				<p><b>Hii i am location service here.. </b></p>
+				<p><b>Hii i am location service here...... </b></p>
 				<span>{{myUrl}}</span><br>
 				Git Repo(New Website or URL) :<button ng-click="gitRepoLink()">windowLocation</button><br>
 				Home route(New route or Update URL) :<button ng-click="homeRoute()">locationRoute</button>		
 			</li><br>
 			<li>
-				<p><b>Hii i am rnStepper directive here.. </b></p>
+				<p><b>Hii i am rnStepper directive here...... </b></p>
 				<stepper-directive>
 					<button class="rnStepperBox">{{count}}</button>
 				</stepper-directive>
@@ -31,6 +31,16 @@
 					<button class="rnStepperBox">{{count}}</button>
 				</stepper-directive>	
 			</li><br>	
+			<li>
+				<p><b>Hii i am prototype concept here...... </b></p>
+				<input type="text" ng-model="arrayName"><br><br>
+				<input type="button" value="checkArrayPresence" ng-click="checkArray(arrayName)"><br><br>
+				<input type="button" value="removeDuplicates" ng-click="removeDuplicates()"><br>
+			</li><br>
+			<li>
+				<p><b>Hii i am ng-class function call here...... </b></p>
+				<div ng-class="getClass('red')"><p>ng-class applied</p></div>
+			</li><br>
 		</ul>
 	</div>
 </div>
