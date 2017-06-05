@@ -41,18 +41,19 @@
     }
     
     function linkFunc (scope, element, attrs, ctrl) {
-		//scope.role = "Panda"; 
+		scope.role = "Panda"; 
 		scope.directiveElm ="i am from directiveElm";
-		scope.display = function(movieName) {
-            alert("Movie : " + movieName);
+		scope.display = function(movie) {
+            alert("Movie : " + movie);
         };
 		attrs.$observe('film', function(value) {
         	element.find('p').text(value)
         })
  		element.append("<strong>"+attrs.film+"</strong>");
         //click on Hii i am ng-message here.
-		angular.element('p').eq(0).bind('click', function () {
-        	alert('You clicked me!');
+		element.bind('click', function () {
+        	//alert('You clicked me!');
+        	scope.role = "kungfu Panda";
     	});
         
         sayHello();
@@ -74,31 +75,28 @@
 	angular
 		.module('myApp')
 		.directive('elementDirective', elementDirective);
-	function elementDirective() {	
-		return {
-	      restrict: "A",
-	      scope: {
-	        elementDir: '='
-	      },
-	      template:'<span>{{elementDir}}</span>',
-		  link: function(scope, element){
-	        }
-    	}
-    }	
-	
-	/*function elementDirective() {
+	function elementDirective() {
 		var directive = {
 		        restrict: 'A',
-		        template:'<span>{{elementDir}}</span>',
+		        //template:'<span>{{element}}</span>',
 		        scope: {
-		            elementDir: '='
+		            element: '='
 		        },
-				 link: linkFunc
+				 link: linkFun
 		    };
 		return directive;
 	    }
     
-    function linkFunc (scope, element, attrs, ctrl) {
-		//scope.elementDir = "Panda"; 
-    }*/
+    function linkFun (scope, element) {
+		scope.element = "Hii i am from Dire-elementdir"; 
+		// it will trigger on anyof the elemet click in document
+		document.addEventListener("click", function(e){
+		    alert(e.target.textContent);
+		});
+		// it will trigger on anyof the elemet click in directive elements
+		element.bind('click', function () {
+        	//alert('You clicked me!');
+        	scope.element = " Hi click element from directive";
+    	});
+    }
 })();	

@@ -80,6 +80,7 @@
 				        <button ng-click="functionTypes()">functionTypes</button>
 				        <p>{{type1}}</p>
 				        <p>{{type2}}</p>
+				        <p>{{type3}}</p>
 			    	</div>
 			    </li><br>
 			    <li>	
@@ -119,7 +120,9 @@
 				<li>    	
 					<div>
 						<p><b>Hii i am elementDirective here.. </b></p>
-						<div element-directive elementDir="elementDir">elementDir: {{elementDir}}</div>		
+						<div element-directive element="elementdir">
+						  changing Element from directive: {{elementdir}}
+						</div>		
 					</div>        
 		        </li><br>
 				<li>	
@@ -127,7 +130,16 @@
 						<p><b>Hii i am popup here.. </b></p>  
 				        <button ng-click="loginPage()">Login Page</button>
 				 	</div>
-				</li><br> 	 	
+				</li><br> 
+				<li>	
+					<div>
+						<p><b>Hii i am $watch here.. </b></p>  
+				        <input ng-model="user.name" />
+  						user updated: {{userupdated}} times.
+  						<input ng-model="userName.name" />
+  						userName updated: {{userNameupdated}} times.
+				 	</div>
+				</li><br> 		 	
 			</ul>
 		</form>
 	</div>

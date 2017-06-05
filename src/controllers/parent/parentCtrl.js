@@ -34,8 +34,8 @@
 		$scope.controlElement = "Hiii directive";
 		$scope.movie = "Ice Age";
 	    $scope.rating = 5;
-	    $scope.elementDir ="Hii Ctrl";
-	    $scope.ctrlRole ="Hii Ctrl";
+	    $scope.elementdir ="Hii i am from ctrl-elementdir";
+	    $scope.ctrlRole ="Hii Role";
 	/**
     * @desc:$routeParams 
     */
@@ -94,18 +94,34 @@
 	    /**
 	    * @desc:different function definitions
 	    */ 
-	    function type1(){
+	    function type1(){ // function type is called function statement
 	    	$scope.type1 =" i am type1";
 	    }
-	    var type2 = function (){
+	    var type2 = function (){ //function type is called function expression
+	    	
+	    	/**
+		    * @desc:== and === concept
+		    */
+	        if(null == undefined){ // it only check the value
+              alert("i am from ==");
+	    	}
+	    	if(null === undefined){// it will check the typeOf and value
+              alert("i am from ===");
+	    	}
+	    	
 	    	$scope.type2 =" i am type2";
+	    	$scope.type3 = type3;
 	    }
+	    var type3 = function (){
+	    	var typeValue; // if u dont declare like this it will give typeValue is not defined
+	    	return typeValue =" i am type3"
+	    }();
 	    $scope.functionTypes =  function() {
 	        type1();
 	        type2();
 	    };
-	    
-	    /**
+
+	   	/**
 	    * @desc:$watch events
 	    */ 
 
@@ -178,6 +194,22 @@
 	    setTimeout(function () {
 	        $scope.$apply(countUp_old);
 	    }, 500);
+       
+        // observe $watch for objects
+	    $scope.user = { name: "Fox" };
+  		$scope.userName = { name: "Fox" };
+	    $scope.userupdated = 0;
+	    $scope.userNameupdated = 0;
+	  
+	    $scope.$watch('user', function(newValue, oldValue) {
+		    if (newValue === oldValue) { return; }
+		    $scope.userupdated++;
+	    });
+
+	    $scope.$watch('userName', function(newValue, oldValue) {
+		    if (newValue === oldValue) { return; }
+		    $scope.userNameupdated++;
+	    }, true);
 
 
 	}

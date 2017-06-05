@@ -29,10 +29,11 @@
           $scope.words.push("hi");
         };
       },
-      template:'<span ng-transclude></span>'+
-      '<p>From Ctrl:<b>{{rating}}</b></p>'+
-      '<br>'+
-      '<div><button ng-click="eventsCheck(valueToPass)">eventsCheck</button></div>',
+      //string interpolation from ES-6
+      template:`<span ng-transclude></span>
+      <p>From Ctrl:<b>{{rating}}</b></p>
+      <br>
+      <div><button ng-click='eventsCheck(valueToPass)'>eventsCheck</button></div>`,
 
       link: function(scope, element){
         element.bind("click", function() {

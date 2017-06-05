@@ -1,67 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-ul{padding:0px;margin:0px;}
-li{list-style:none;padding:0px;margin:0px;background:gray;display:inline-block; vertical-align:top; width:200px;text-align:center;color:white}
-ul li ul{display:none;}
-
-ul li:hover{background-color:blue;color:yellow}
-ul li:hover > ul{display:inline-block;}
-ul li:hover > ul li:hover {background:yellow;color:blue;height:20px;}
-
-ul li ul li ul {margin-left:200px;margin-top:-20px}
-ul li ul li ul li{background:red; color:black;}
-ul li:hover > ul li:hover > ul li:hover{background:black; color:yellow;}
-</style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-<ul>
-	<li>Home
-    	<ul>
-        	<li>One
-              <ul>
-                  <li>Two1</li>
-                  <li>Two2</li>
-                  <li>Two3</li>
-               </ul>
-            </li>  
-            <li>Two</li>
-            <li>Three</li>
-        </ul>
-    </li>
-    <li>About
-    	<ul>
-        	<li>Four</li>
-            <li>Five</li>
-            <li>Six</li>
-        </ul>
-    </li>
-    <li>Services
-    	<ul>
-        	<li>Seven</li>
-            <li>Eight</li>
-            <li>Nine</li>
-        </ul>
-    </li>
-</ul>
-
-<div class="container-fluid">
-  <h1>Push and Pull</h1>
-  <p>Resize the browser window to see the effect.</p>
-  <div class="row">
-    <div class="col-md-6 col-md-push-6" style="background-color:lavender;">push</div>
-    <div class="col-md-6 col-md-pull-6" style="background-color:blue;">pull</div>
-  </div><br><br>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-6" style="background-color:lavender;">offset</div>
-    <div class="col-md-6 col-md-pull-6" style="background-color:blue;">pull</div>
-  </div>
-</div>
-
-</body>
+  <head>
+    <link rel="stylesheet" href="../css/onlyApp.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div> 
+      <ul>
+      	<li>Home
+          	<ul>
+              	<li>One
+                    <ul>
+                        <li>Two1</li>
+                        <li>Two2</li>
+                        <li>Two3</li>
+                     </ul>
+                  </li>  
+                  <li>Two</li>
+                  <li>Three</li>
+              </ul>
+          </li>
+          <li>About
+          	<ul>
+              	<li>Four</li>
+                  <li>Five</li>
+                  <li>Six</li>
+              </ul>
+          </li>
+          <li>Services
+          	<ul>
+              	<li>Seven</li>
+                  <li>Eight</li>
+                  <li>Nine</li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+    <div class="container-fluid">
+      <h1>Push and Pull</h1>
+      <p>Resize the browser window to see the effect.</p>
+      <div class="row">
+        <div class="col-md-6 col-md-push-6" style="background-color:lavender;">push</div>
+        <div class="col-md-6 col-md-pull-6" style="background-color:blue;">pull</div>
+      </div><br><br>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-6" style="background-color:lavender;">offset</div>
+        <div class="col-md-6 col-md-pull-6" style="background-color:blue;">pull</div>
+      </div>
+    </div>
+    <div id="main">
+      <h1>Flex property</h1>
+      <div style="background-color:coral;">A</div>
+      <div style="background-color:lightblue;">B</div>
+      <div style="background-color:khaki;">C</div>
+      <div style="background-color:pink;">D</div>
+      <div style="background-color:lightgrey;">E</div>
+      <div style="background-color:lightgreen;">F</div>
+    </div>
+    <div>
+      <h1>----Combinator property----</h1>
+      <b>descendantSelector property</b>
+      <div>
+        <div class='descendentSelector'>
+          <p>Paragraph 1.</p>
+          <p>Paragraph 2.</p>
+          <span><p>Paragraph 3 in the div.</p></span> <!-- not Child but Descendant -->
+        </div>
+        <p>Paragraph 3.</p>
+        <code>descendentSelector code.</code>
+        <p>Paragraph 4.</p>
+      </div>
+      <b>childelector property</b>
+      <div>
+        <div class='childSelector'>
+          <p>Paragraph 1.</p>
+          <p>Paragraph 2.</p>
+          <span><p>Paragraph 3 in the div.</p></span> <!-- not Child but Descendant -->
+        </div>
+        <p>Paragraph 3.</p>
+        <code>childSelector code.</code>
+        <p>Paragraph 4.</p>
+      </div>
+      <b>adjascentSibling property</b>
+      <div>
+        <div class='adjacentSibling'>
+          <code>adjacentSibling code</code>
+          <p>Paragraph 1.</p>
+          <p>Paragraph 2.</p>
+        </div>
+        <!-- <code>Some code.</code> --> <!-- immediate sibling -->
+        <p>Paragraph 3.</p>
+        <p>Paragraph 4.</p>
+      </div>
+      <b>generalSibling property</b>
+      <div>
+        <div class='generalSibling'>
+          <code>generalSibling code.</code>
+           <p>Paragraph 1.</p>
+          <p>Paragraph 2.</p>
+        </div>
+        <p>Paragraph 3.</p>
+        <p>Paragraph 4.</p>
+      </div>      
+    </div>
+  </body>
 </html>

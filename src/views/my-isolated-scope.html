@@ -1,11 +1,11 @@
 <span ng-transclude></span><div>Movie title : {{movieName}}</div>
-Type a new movie title : <input type='text' ng-model='movie' />
+<!-- Type a new movie title : <input type='text' ng-model='movie' /> -->
 <div>Movie rating : {{rating}}</div>
 Rate the movie : <input type='text' ng-model='rating' /><br>
 ctrlRole : <input type='text' ng-model='role'/>
 <br><br>
 <div><button ng-click='ctrlfunction({eventName:names})'>View eventCtrl</button></div>
 <br>
-<div><button ng-click='display(movie)'>View MovieDire</button></div>
+<div><button ng-click="display(movieName)">View MovieDire</button></div>
 <br>
-<div><b>IsolateDirectiveElement <b>: {{directiveElm}}</div>
+<div><b>IsolateDirectiveElement</b>: {{directiveElm}}</div>

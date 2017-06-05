@@ -9,6 +9,12 @@ module.exports = function(grunt) {
 				livereload:true	
 			}
 		},
+		// for running unit-test cases
+		karma: {
+	      unit: {
+	        configFile: 'karma.conf.js'
+	      }
+	    },
 		concat: {
 		  options: {
 		    // define a string to put between each file in the concatenated output
@@ -150,9 +156,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-js2coffee');
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-livereload');
+	grunt.loadNpmTasks('grunt-karma');
 	//grunt.loadNpmTasks('grunt-reload');
 	//grunt.loadNpmTasks('grunt-serve');
-	grunt.registerTask('test', ['jshint','qunit']);
+	grunt.registerTask('test', ['karma:unit','jshint','qunit']);
 	grunt.registerTask('default', ['concat','copy','connect','watch']);
 	grunt.registerTask('server',[ 'express','copy','uglify','open','js2coffee','coffee','watch','clean','connect']);
 
