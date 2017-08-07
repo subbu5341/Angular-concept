@@ -33,7 +33,7 @@
 			</li><br>	
 			<li>
 				<p><b>Hii i am prototype concept here...... </b></p>
-				<input type="text" ng-model="arrayName"><br><br>
+				<input type="text" ng-model="arrayName" class="colorChange"><br><br>
 				<input type="button" value="checkArrayPresence" ng-click="checkArray(arrayName)"><br><br>
 				<input type="button" value="removeDuplicates" ng-click="removeDuplicates()"><br>
 			</li><br>
@@ -41,6 +41,14 @@
 				<p><b>Hii i am ng-class function call here...... </b></p>
 				<div ng-class="getClass('red')"><p>ng-class applied</p></div>
 			</li><br>
+			<li>
+				<p><b>Hii i will open on new window...... </b></p>
+				<a href="https://www.w3schools.com/html/html_iframe.asp" target="_blank">w3schools.com</a>
+			</li><br>
+
+			<a onclick="var $scope = angular.element(event.target).scope(); $scope.yourVar = 42; $scope.$apply()">Go</a>
+			<a ng-click="yourVar = 42">Go</a>
+
 		</ul>
 	</div>
 </div>

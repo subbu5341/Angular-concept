@@ -66,7 +66,9 @@
 		$scope.broadcastEvent= function (){
 		   $rootScope.$broadcast('greeting', $scope.data);
 		};
+		
 		//$scope.$on not works incase of $emit
+		// from Child to Parent
 		$rootScope.$on('emitEventListener', listenEmitEvent)
 		function listenEmitEvent($event, message){
 	    	alert("Hi" +" "+ message);
@@ -200,27 +202,70 @@
   		$scope.userName = { name: "Fox" };
 	    $scope.userupdated = 0;
 	    $scope.userNameupdated = 0;
-	  
+	  	
+	  	//it will observe the reference
 	    $scope.$watch('user', function(newValue, oldValue) {
 		    if (newValue === oldValue) { return; }
 		    $scope.userupdated++;
 	    });
-
+	    // it will observe the value
 	    $scope.$watch('userName', function(newValue, oldValue) {
 		    if (newValue === oldValue) { return; }
 		    $scope.userNameupdated++;
 	    }, true);
 
+	    // accion task	
+	    var sumFun = function sumStrings(a,b)  {
+	    	 var patt = new RegExp('^\\d+$');	    	 
 
+	    	 var str1 = patt.test(a);
+	    	 var str2 = patt.test(b);
+	    	 
+	    	 if( str1 &&  str2) {
+	    	 	var num1  = parseInt(a);
+	    	 	var num2  = parseInt(b);
+	    	 	
+	    	 	var c = num1+num2;
+	    	 	//console.log(c);
+	    	 	return c;
+	    	 }else {
+	    	 	alert("Please enter numeric values");
+	    	 }
+	    	 
+	    	//console.log(c);
+	    }
+
+	    sumFun('0','2');
+	    console.log(sumFun());
 	}
 	
+	/**
+    * @desc:stars ascending oreder program
+    */ 
+	function starsProgram(n){
+		var i, j;
+	  //outer loop
+	  for(i=1; i <= n; i++)
+	   {
+	   //inner loop
+	    for(j=1; j<=i; j++)
+	   {
+	     document.write('*');
+	    }
+	     document.write('<br/>');
+	   }
+	}
+	   starsProgram(5);
+	   
 	angular
 		.module('myApp')
 	    .controller('ModalController', ModalController);
 	
-	function ModalController($scope,$rootScope) { 
-			$scope.close = function(result) {
+	function ModalController(scope, rootScope) { 
+			scope.close = function(result) {
 	 	close(result, 500); // close, but give 500ms for bootstrap to animate
 	 };
-	}	
+	}
+	
+	ModalController.$inject = ['$scope', '$rootScope'];	
 })();

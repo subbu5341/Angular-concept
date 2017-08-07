@@ -2,7 +2,7 @@
 		.module('myApp')
 		.config(config);
 	
-	function config ($routeProvider) {
+	function config ($routeProvider, $provide) {
 	  	$routeProvider
 		  .when('/scopeCtrl', {
 		    templateUrl: '../views/indexScope.html',
@@ -55,6 +55,13 @@
 		  .otherwise({
 		    redirectTo: '/'
 		  });
+		  
+		$provide.decorator('$exceptionHandler', function ($delegate) {
+            return function (exception, cause) {
+                $delegate(exception, cause);
+                alert('Error occurred! Please contact admin.');
+            };
+        }); 
 	}		;(function() {
     'use strict';
     angular
@@ -65,6 +72,7 @@
 		$scope.childName = "Hi childCtrl";
 		$scope.myUrl = $location.absUrl();
 		$scope.arrayName = 'red';
+		$scope.yourVar = 42;
 		
 
 		$scope.gitRepoLink = function (){
@@ -111,11 +119,41 @@
 		}
 
 		/**
+	    * @desc:call and bind methods
+	    */
+		var person = {  
+		  name: "James Smith",
+		  hello: function(thing) {
+		    console.log(this.name + " says hello " + thing);
+		  }
+		}
+
+		person.hello("world");  // output: "James Smith says hello world"
+		person.hello.call({ name: "Jim Smith" }, "world");
+
+		var person = {  
+		  name: "James Smith",
+		  hello: function(thing) {
+		    console.log(this.name + " says hello " + thing);
+		  }
+		}
+
+		person.hello("world");  // output: "James Smith says hello world"
+		var helloFunc = person.hello.bind({ name: "Jim Smith" });
+		helloFunc("world");
+
+						/* (or)*/
+
+		var helloFunc = person.hello.bind({ name: "Jim Smith" }, "world");
+		helloFunc();
+		
+		/**
 	    * @desc:call and apply an bind methods
 	    */
 		var person1 = {name: 'Marvin', age: 42, size: '2xM'};
 		var person2 = {name: 'Zaphod', age: 42000000000, size: '1xS'};
 		var args = ['ram','subbu'];
+		
 		var sayHello = function(){
 		    console.log('Hello, ' + this.name);
 		};
@@ -125,7 +163,8 @@
 
 		sayHello.call(person1);
 		sayHello.call(person2);
-		sayGoodbye.call(person1,'Hiiiii');
+		
+		sayGoodbye.call(person1,'Hiiiii', 'Bye');
 		sayGoodbye.apply(person1,args);
 
 		function passed(){
@@ -147,31 +186,14 @@
 		}
 
 		var rachel = {name: 'Rachel Green', total: 1500};
+		
 		var bindVariable =monica.deductMontlyFee;
-		//bindVariable();
+		
 		var rachelFeeDeductor = bindVariable.bind(rachel, 200);
 		rachelFeeDeductor(); //"Rachel Green remaining balance is 1300"
 		rachelFeeDeductor(); //"Rachel Green remaining balance is 1100"
 		alert("Hi i am from" + rachelFeeDeductor());
-        //check this example in console
-		/* this.x = 9;    // this refers to global "window" object here in the browser
-		var module = {
-		  x: 81,
-		  getX: function() { return this.x; }
-		};
-
-		module.getX(); // 81
-
-		var retrieveX = module.getX;
-		retrieveX();   
-		// returns 9 - The function gets invoked at the global scope
-
-		// Create a new function with 'this' bound to module
-		// New programmers might confuse the
-		// global var x with module's property x
-		var boundGetX = retrieveX.bind(module);
-		boundGetX(); // 81
-		alert("Hi i am from" + boundGetX());*/
+        
 		
 		/**
 	    * @desc:prototype concept functions
@@ -227,7 +249,37 @@
 		    alert(b);
 		}	    	  
 	}
+	/**
+    * @desc:reverse in place
+    */ 
+	function reverseWords(str){
+	 	var rev = [];
+	 	var revPla =[], 
+	 	rtnorg =[];
+	    var wordLen = 0;
+		var k =0;
+	 for(var i = str.length-1; i>=0; i--){
+	   if(str[i]==' ' || i==0){
+		    rev.push(str.substr(i,wordLen+1));
+			var strn =rev[k];
+			var rtnStr = '';
+	  		for(var j = strn.length-1; j>=0;j--){
+	            rtnStr +=strn[j];
+	            rtnorg.pop(rtnStr);	           
+	          }
+	       k++;
+	       ///console.log(rtnStr);
+	       revPla.push(rtnorg);
+	     	wordLen = 0;
+	   }
+	   else
+	     wordLen++;
+	 }
+	 return revPla.join(' ');
+	}
 
+	 var strs =reverseWords("good boy");
+	 console.log(strs);
     /**
     * @desc:private and public properties and methods example(Encapsulation)
     */ 
@@ -304,17 +356,19 @@
 	/**
     * @desc:closures concept
     */
+	
 	for(var i=0;i<4;i++){
 		(function(val){
 			setTimeout(function(){
-				console.log('From closures' + val);
+				console.log('closures from IIFE'+' '+ val);
 			},1000)
 		})(i);
 	}
+	
 	// this one also do the same
 	for(let i=0;i<4;i++){
 		setTimeout(function(){
-			console.log('From closures' + val);
+			console.log('closures from let'+' '+ i);
 		},1000)
 	}
 	/**
@@ -455,7 +509,9 @@
 		$scope.broadcastEvent= function (){
 		   $rootScope.$broadcast('greeting', $scope.data);
 		};
+		
 		//$scope.$on not works incase of $emit
+		// from Child to Parent
 		$rootScope.$on('emitEventListener', listenEmitEvent)
 		function listenEmitEvent($event, message){
 	    	alert("Hi" +" "+ message);
@@ -589,29 +645,72 @@
   		$scope.userName = { name: "Fox" };
 	    $scope.userupdated = 0;
 	    $scope.userNameupdated = 0;
-	  
+	  	
+	  	//it will observe the reference
 	    $scope.$watch('user', function(newValue, oldValue) {
 		    if (newValue === oldValue) { return; }
 		    $scope.userupdated++;
 	    });
-
+	    // it will observe the value
 	    $scope.$watch('userName', function(newValue, oldValue) {
 		    if (newValue === oldValue) { return; }
 		    $scope.userNameupdated++;
 	    }, true);
 
+	    // accion task	
+	    var sumFun = function sumStrings(a,b)  {
+	    	 var patt = new RegExp('^\\d+$');	    	 
 
+	    	 var str1 = patt.test(a);
+	    	 var str2 = patt.test(b);
+	    	 
+	    	 if( str1 &&  str2) {
+	    	 	var num1  = parseInt(a);
+	    	 	var num2  = parseInt(b);
+	    	 	
+	    	 	var c = num1+num2;
+	    	 	//console.log(c);
+	    	 	return c;
+	    	 }else {
+	    	 	alert("Please enter numeric values");
+	    	 }
+	    	 
+	    	//console.log(c);
+	    }
+
+	    sumFun('0','2');
+	    console.log(sumFun());
 	}
 	
+	/**
+    * @desc:stars ascending oreder program
+    */ 
+	function starsProgram(n){
+		var i, j;
+	  //outer loop
+	  for(i=1; i <= n; i++)
+	   {
+	   //inner loop
+	    for(j=1; j<=i; j++)
+	   {
+	     document.write('*');
+	    }
+	     document.write('<br/>');
+	   }
+	}
+	   starsProgram(5);
+	   
 	angular
 		.module('myApp')
 	    .controller('ModalController', ModalController);
 	
-	function ModalController($scope,$rootScope) { 
-			$scope.close = function(result) {
+	function ModalController(scope, rootScope) { 
+			scope.close = function(result) {
 	 	close(result, 500); // close, but give 500ms for bootstrap to animate
 	 };
-	}	
+	}
+	
+	ModalController.$inject = ['$scope', '$rootScope'];	
 })();;(function() {
     'use strict';
     
@@ -1007,7 +1106,7 @@
         	email : ""
         };
         
-        $scope.onGoogleLogin = function() {
+       /* $scope.onGoogleLogin = function() {
            	var params = {
            	  	'clientid': '406103434121-if7qhtk870kvbmd28tlarh9ik1u3uls0.apps.googleusercontent.com',
            	  	'cookiepolicy': 'single_host_origin',
@@ -1030,7 +1129,7 @@
 	           	'scope':'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
             };
             gapi.auth.signIn(params);
-        }
+        }*/
 
 	}
 })();
