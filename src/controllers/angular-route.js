@@ -2,7 +2,7 @@
 		.module('myApp')
 		.config(config);
 	
-	function config ($routeProvider) {
+	function config ($routeProvider, $provide) {
 	  	$routeProvider
 		  .when('/scopeCtrl', {
 		    templateUrl: '../views/indexScope.html',
@@ -55,4 +55,11 @@
 		  .otherwise({
 		    redirectTo: '/'
 		  });
+		  
+		$provide.decorator('$exceptionHandler', function ($delegate) {
+            return function (exception, cause) {
+                $delegate(exception, cause);
+                alert('Error occurred! Please contact admin.');
+            };
+        }); 
 	}		

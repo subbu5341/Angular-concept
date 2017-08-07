@@ -53,7 +53,7 @@
 					      <input type='text'
 					             ng-model='contact.phone'             
 					             placeholder='(xxx) xxx-xxxx'
-					             ng-required='!contact.email'  ng-hide='contact.email' ng-model-options="{updateOn: 'blur'}"/> 
+					             ng-required='!contact.email'  ng-hide='contact.email' ng-model-options="{updateOn: 'blur'}" class="colorChange"/> 
 					       <p><b>ngModalOptions Attribute:{{contact.phone}}{{contact.email}} </b></p>     
 				    </div> 
 			    </li><br> 
@@ -62,8 +62,8 @@
 						<p>Controller Type:{{ctrl}}<p>
 					   	<p>parent text: {{parentName}}</p>
 					    <p>Movie Name : {{movie}}</p>
-				        <p>Rating : {{rating}}</p>
-				        <p>ctrlRole : {{ctrlRole}}</p>
+				        <p class="colorChange">Rating : {{rating}}</p>
+				        <p class="colorChange">ctrlRole : {{ctrlRole}}</p>
 				        <!-- <button type="button" ng-click="checkEvent($event)">checkEvent</button> -->
 					</div>        
 		         </li>
@@ -80,6 +80,7 @@
 				        <button ng-click="functionTypes()">functionTypes</button>
 				        <p>{{type1}}</p>
 				        <p>{{type2}}</p>
+				        <p>{{type3}}</p>
 			    	</div>
 			    </li><br>
 			    <li>	
@@ -94,7 +95,7 @@
 					<div>
 						<p><b>Hii i am ng-repeat and search filter here.. </b></p>   
 						<p>Search:
-							<input type="text" ng-model="name" ng-model-options="{ debounce: 1000 }"/></p>
+							<input type="text" ng-model="name" ng-model-options="{ debounce: 1000 }" class="colorChange"/></p>
 						<ul>
 							<li ng-repeat="student in students | filter:name">{{student.name}} , {{student.city}}</li>
 						</ul>
@@ -119,7 +120,9 @@
 				<li>    	
 					<div>
 						<p><b>Hii i am elementDirective here.. </b></p>
-						<div element-directive elementDir="elementDir">elementDir: {{elementDir}}</div>		
+						<div element-directive element="elementdir">
+						  changing Element from directive: {{elementdir}}
+						</div>		
 					</div>        
 		        </li><br>
 				<li>	
@@ -127,7 +130,16 @@
 						<p><b>Hii i am popup here.. </b></p>  
 				        <button ng-click="loginPage()">Login Page</button>
 				 	</div>
-				</li><br> 	 	
+				</li><br> 
+				<li>	
+					<div>
+						<p><b>Hii i am $watch here.. </b></p>  
+				        <input ng-model="user.name" class="colorChange"/>
+  						user updated: {{userupdated}} times.
+  						<input ng-model="userName.name" class="colorChange" />
+  						userName updated: {{userNameupdated}} times.
+				 	</div>
+				</li><br> 		 	
 			</ul>
 		</form>
 	</div>

@@ -29,7 +29,7 @@ Link: combine the directives with a scope and produce a live view. Any changes i
 *eventlisteners :http://codepen.io/gpincheiraa/pen/xOZwqa &&
 		 http://stackoverflow.com/questions/14502006/working-with-scope-emit-and-on
 
-*Ng-messages:https://scotch.io/tutorials/angularjs-form-validation-with-ngmessages &&
+*Ng-messages1:https://scotch.io/tutorials/angularjs-form-validation-with-ngmessages &&
 	    https://scotch.io/tutorials/angularjs-form-validation
             https://docs.angularjs.org/api/ngMessages
 
@@ -47,10 +47,17 @@ Link: combine the directives with a scope and produce a live view. Any changes i
 
 *$timeout:https://benohead.com/when-to-use-timeout/
 
+*$digest-loop:http://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/
+
 *$location:https://www.sitepoint.com/premium/books/angularjs-novice-to-ninja/preview/exploring-the-location-service-2f17ca5
 
 *angular-UI-view:https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views
-		https://scotch.io/tutorials/angular-routing-using-ui-router		
+		https://scotch.io/tutorials/angular-routing-using-ui-router	
+
+*BindToController:http://www.tothenew.com/blog/using-bindtocontroller-with-controlleras-syntax-in-angular/
+
+*Promises:https://blog.brunoscopelliti.com/angularjs-promise-or-dealing-with-asynchronous-requests-in-angularjs/
+		http://qnimate.com/javascript-promise-vs-callback/	
 
 DIFFERENCES B/W:
 
@@ -68,6 +75,14 @@ DIFFERENCES B/W:
 6.Bootstrap Vs angular-ui-bootstrap:http://stackoverflow.com/questions/35063868/what-is-the-core-difference-between-bootstrap-css-and-angularjs-ui-bootstrap	
 7.call Vs apply:https://hangar.runway7.net/javascript/difference-call-apply
 		https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+		I already know that apply and call are similar functions which setthis (context of a function).
+8.Call Vs Bind: https://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind
+9.Callback Vs Promises: https://stackoverflow.com/questions/14244775/what-is-the-difference-between-callback-and-promise
+			https://blog.brunoscopelliti.com/angularjs-promise-or-dealing-with-asynchronous-requests-in-angularjs/
+			http://qnimate.com/javascript-promise-vs-callback/
+10.Sync Vs Async: https://www.aspsnippets.com/Articles/Difference-between-Synchronous-Sync-and-Asynchronous-Async-Request-Call-in-AJAX.aspx
+11.PassByValue Vs PassByRefference: https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value
+
 BEST AUTHORS FOR ANGUALRJS:
 
 1.viralpatel
@@ -77,13 +92,15 @@ BEST AUTHORS FOR ANGUALRJS:
 
 DIAGRAM REPRESENTATION OF MVC:
 https://docs.angularjs.org/guide/concepts
+https://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg
+https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 
 FUNCTION DECLARATION TYPES:
  someFn();
- var someFn = function(...) {...} // is called function expression
+ var someFn = function(...) {...} // is called function expression or anonymous function
  
  someFn();
- function someFn(...) {...} // is called function statement
+ function someFn(...) {...} // is called function statement or named functions
 
 *SocialNetworks CSS:
 URL for refernce:https://lipis.github.io/bootstrap-social/
@@ -101,3 +118,7 @@ https://bower.io/docs/creating-packages/
 
 karma setUp:
 http://www.wilandrade.com/how-to-setup-karma-with-mocha-and-chai/
+
+
+Angualr-seed for angular1
+Angular-CLI for angular2

@@ -7,7 +7,7 @@
         	email : ""
         };
         
-        $scope.onGoogleLogin = function() {
+       /* $scope.onGoogleLogin = function() {
            	var params = {
            	  	'clientid': '406103434121-if7qhtk870kvbmd28tlarh9ik1u3uls0.apps.googleusercontent.com',
            	  	'cookiepolicy': 'single_host_origin',
@@ -30,7 +30,7 @@
 	           	'scope':'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
             };
             gapi.auth.signIn(params);
-        }
+        }*/
 
 	}
 })();
